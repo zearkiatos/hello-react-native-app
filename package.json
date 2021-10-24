@@ -1,5 +1,6 @@
 {
   "main": "node_modules/expo/AppEntry.js",
+  "description": "It is a basic application to practice and initialization the way to build application with react native ⚛️ 📱",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
