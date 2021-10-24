@@ -1,0 +1,23 @@
+{
+  "main": "node_modules/expo/AppEntry.js",
+  "description": "It is a basic application to practice and initialization the way to build application with react native ⚛️ 📱",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "eject": "expo eject"
+  },
+  "dependencies": {
+    "expo": "~43.0.0",
+    "expo-status-bar": "~1.1.0",
+    "react": "17.0.1",
+    "react-dom": "17.0.1",
+    "react-native": "0.64.2",
+    "react-native-web": "0.17.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.9"
+  },
+  "private": true
+}
