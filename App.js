@@ -6,7 +6,8 @@ import Greeting from './src/components/Greeting';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Greeting></Greeting>
+      <Greeting text='Hello World! 👋 🌎' />
+      <Greeting text='Bye World! 👋 🌎' />
       <StatusBar style="auto" />
     </View>
   );
