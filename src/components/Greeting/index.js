@@ -4,9 +4,9 @@ const Greeting = (props) => {
     const [text, setText] = useState(props.text);
     const updateText = () => {
         setText('Bye World! 👋 🌎')
-    }
+    };
     return (<div>
-        <Text onPress={updateText}>{text}</Text>
+        <Text style={{fontSize: 24}} onPress={updateText}>{text}</Text>
     </div>)
 };
 
