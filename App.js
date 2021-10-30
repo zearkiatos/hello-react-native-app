@@ -6,12 +6,7 @@ import Greeting from './src/components/Greeting';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Greeting text='Hello World! 👋 🌎'>
-        I'm a children component
-      </Greeting>
-      <Greeting text='Bye World! 👋 🌎'>
-        I'm a children component
-      </Greeting>
+      <Greeting text='Hello World! 👋 🌎' />
       <StatusBar style="auto" />
     </View>
   );
