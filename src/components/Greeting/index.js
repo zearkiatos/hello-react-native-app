@@ -1,20 +1,12 @@
 import React, { useState } from 'react';
-import { Text, StyleSheet } from 'react-native';
+import { Text, StyleSheet, View } from 'react-native';
 
-const styles = StyleSheet.create({
-    text: {
-        fontSize: 24,
-        color: 'red'
-    }
-})
 const Greeting = (props) => {
     const [text, setText] = useState(props.text);
     const updateText = () => {
         setText('Bye World! 👋 🌎')
     };
-    return (<div>
-        <Text style={styles.text} onPress={updateText}>{text}</Text>
-    </div>)
+    return <Text style={props.style} onPress={updateText}>{text}</Text>
 };
 
 export default Greeting;
