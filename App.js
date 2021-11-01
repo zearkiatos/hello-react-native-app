@@ -11,6 +11,7 @@ import {
   TouchableNativeFeedback,
   TouchableOpacity,
   TouchableWithoutFeedback,
+  ScrollView,
 } from "react-native";
 import Greeting from "./src/components/Greeting";
 
@@ -25,44 +26,83 @@ export default function App() {
   };
   return (
     <View style={styles.container}>
-      <Greeting text="Hello World! 👋 🌎" style={[styles.text, styles.red]} />
-      <Text>Text: {text}</Text>
-      <Text>Data Submitted: {submit}</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Write Here"
-        onChangeText={(t) => setText(t)}
-        defaultValue={text}
-      />
-      <Button onPress={onPress} title="Accept" />
-      <TouchableHighlight
-        underlayColor={"#999"}
-        activeOpacity={0.2}
-        onPress={onPress}
-      >
-        <Text>Accept</Text>
-      </TouchableHighlight>
-      <TouchableNativeFeedback
-        background={TouchableNativeFeedback.Ripple("#00f", true)}
-        onPress={onPress}
-      >
-        <View style={styles.view}>
+      <ScrollView style={styles.scrollView}>
+        <Greeting text="Hello World! 👋 🌎" style={[styles.text, styles.red]} />
+        <Greeting text="Hello World! 👋 🌎" style={[styles.text, styles.red]} />
+        <Greeting text="Hello World! 👋 🌎" style={[styles.text, styles.red]} />
+        <Greeting text="Hello World! 👋 🌎" style={[styles.text, styles.red]} />
+        <Greeting text="Hello World! 👋 🌎" style={[styles.text, styles.red]} />
+        <Greeting text="Hello World! 👋 🌎" style={[styles.text, styles.red]} />
+        <Greeting text="Hello World! 👋 🌎" style={[styles.text, styles.red]} />
+        <Greeting text="Hello World! 👋 🌎" style={[styles.text, styles.red]} />
+        <Greeting text="Hello World! 👋 🌎" style={[styles.text, styles.red]} />
+        <Greeting text="Hello World! 👋 🌎" style={[styles.text, styles.red]} />
+        <Greeting text="Hello World! 👋 🌎" style={[styles.text, styles.red]} />
+        <Greeting text="Hello World! 👋 🌎" style={[styles.text, styles.red]} />
+        <Greeting text="Hello World! 👋 🌎" style={[styles.text, styles.red]} />
+        <Greeting text="Hello World! 👋 🌎" style={[styles.text, styles.red]} />
+        <Greeting text="Hello World! 👋 🌎" style={[styles.text, styles.red]} />
+        <Greeting text="Hello World! 👋 🌎" style={[styles.text, styles.red]} />
+        <Greeting text="Hello World! 👋 🌎" style={[styles.text, styles.red]} />
+        <Greeting text="Hello World! 👋 🌎" style={[styles.text, styles.red]} />
+        <Greeting text="Hello World! 👋 🌎" style={[styles.text, styles.red]} />
+        <Greeting text="Hello World! 👋 🌎" style={[styles.text, styles.red]} />
+        <Greeting text="Hello World! 👋 🌎" style={[styles.text, styles.red]} />
+        <Greeting text="Hello World! 👋 🌎" style={[styles.text, styles.red]} />
+        <Greeting text="Hello World! 👋 🌎" style={[styles.text, styles.red]} />
+        <Greeting text="Hello World! 👋 🌎" style={[styles.text, styles.red]} />
+        <Greeting text="Hello World! 👋 🌎" style={[styles.text, styles.red]} />
+        <Greeting text="Hello World! 👋 🌎" style={[styles.text, styles.red]} />
+        <Greeting text="Hello World! 👋 🌎" style={[styles.text, styles.red]} />
+        <Greeting text="Hello World! 👋 🌎" style={[styles.text, styles.red]} />
+        <Greeting text="Hello World! 👋 🌎" style={[styles.text, styles.red]} />
+        <Greeting text="Hello World! 👋 🌎" style={[styles.text, styles.red]} />
+        <Greeting text="Hello World! 👋 🌎" style={[styles.text, styles.red]} />
+        <Greeting text="Hello World! 👋 🌎" style={[styles.text, styles.red]} />
+        <Greeting text="Hello World! 👋 🌎" style={[styles.text, styles.red]} />
+        <Greeting text="Hello World! 👋 🌎" style={[styles.text, styles.red]} />
+        <Greeting text="Hello World! 👋 🌎" style={[styles.text, styles.red]} />
+        <Greeting text="Hello World! 👋 🌎" style={[styles.text, styles.red]} />
+        <Greeting text="Hello World! 👋 🌎" style={[styles.text, styles.red]} />
+        <Greeting text="Hello World! 👋 🌎" style={[styles.text, styles.red]} />
+        <Greeting text="Hello World! 👋 🌎" style={[styles.text, styles.red]} />
+        <Greeting text="Hello World! 👋 🌎" style={[styles.text, styles.red]} />
+        <Text>Text: {text}</Text>
+        <Text>Data Submitted: {submit}</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Write Here"
+          onChangeText={(t) => setText(t)}
+          defaultValue={text}
+        />
+        <Button onPress={onPress} title="Accept" />
+        <TouchableHighlight
+          underlayColor={"#999"}
+          activeOpacity={0.2}
+          onPress={onPress}
+        >
           <Text>Accept</Text>
-        </View>
-      </TouchableNativeFeedback>
-      <TouchableOpacity style={styles.touchableOpacity} onPress={onPress}>
-        <View style={styles.view}>
-          <Text>Accept</Text>
-        </View>
-      </TouchableOpacity>
-      <TouchableWithoutFeedback
-        onPress={onPress}
-      >
-        <View style={styles.view}>
-          <Text>Accept</Text>
-        </View>
-      </TouchableWithoutFeedback>
-      <StatusBar style="auto" />
+        </TouchableHighlight>
+        <TouchableNativeFeedback
+          background={TouchableNativeFeedback.Ripple("#00f", true)}
+          onPress={onPress}
+        >
+          <View style={styles.view}>
+            <Text>Accept</Text>
+          </View>
+        </TouchableNativeFeedback>
+        <TouchableOpacity style={styles.touchableOpacity} onPress={onPress}>
+          <View style={styles.view}>
+            <Text>Accept</Text>
+          </View>
+        </TouchableOpacity>
+        <TouchableWithoutFeedback onPress={onPress}>
+          <View style={styles.view}>
+            <Text>Accept</Text>
+          </View>
+        </TouchableWithoutFeedback>
+        <StatusBar style="auto" />
+      </ScrollView>
     </View>
   );
 }
@@ -102,4 +142,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  scrollView: {
+    width
+  }
 });
