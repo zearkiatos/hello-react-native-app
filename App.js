@@ -1,22 +1,35 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
-import { StyleSheet, View, Text, TextInput, Dimensions } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Text,
+  TextInput,
+  Dimensions,
+  Button,
+} from "react-native";
 import Greeting from "./src/components/Greeting";
 
 const width = Dimensions.get("window").width;
 
 export default function App() {
-  const [text, setText] = useState('Happy 🐷');
+  const [text, setText] = useState("Happy 🐷");
+  const [submit, setSubmit] = useState("");
   return (
     <View style={styles.container}>
       <Greeting text="Hello World! 👋 🌎" style={[styles.text, styles.red]} />
       <Text>Text: {text}</Text>
-      <TextInput 
+      <Text>Data Submitted: {submit}</Text>
+      <TextInput
         style={styles.input}
         placeholder="Write Here"
-        onChangeText={t => setText(t)}
+        onChangeText={(t) => setText(t)}
         defaultValue={text}
       />
+      <Button onPress={() => {
+        setSubmit(text);
+        alert('Text sended successful');
+      }} title="Accept" />
       <StatusBar style="auto" />
     </View>
   );
