@@ -9,8 +9,10 @@ install-dependencies:
     - apk update && apk add python make g++
     - apk add --update nodejs npm
     - npm install
-    - npm install -g yarn
     - npm install -g expo-cli
+    - touch .env
+    - echo "ENVIRONMENT=${ENVIRONMENT}" > .env
+    - echo "JSON_PLACEHOLDER_API_BASE_URL=${JSON_PLACEHOLDER_API_BASE_URL}" >> .env
   artifacts:
     expire_in: 1hr
     paths:

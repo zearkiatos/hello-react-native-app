@@ -1,38 +1,56 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import Greeting from './src/components/Greeting';
+import React, { useState, useEffect } from "react";
+import { StyleSheet, View, FlatList, Text } from "react-native";
+import data from "./src/mock/data.json";
+import config from "./src/config";
 
 export default function App() {
+  const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    fetch(`${config.JSON_PLACEHOLDER_API_BASE_URL}/users`)
+      .then((response) => response.json())
+      .then((data) => {
+        setUsers(data);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) {
+    return (
+      <view>
+        <Text style={styles.center}>Loading...</Text>
+      </view>
+    );
+  }
   return (
     <View style={styles.container}>
-      <Greeting text='Hello World! 👋 🌎' style={[styles.text, styles.red]} />
-      <Greeting text='Hello World! 👋 🌎' style={[styles.text, styles.green]}  />
-      <Greeting text='Hello World! 👋 🌎' style={[styles.text, styles.blue]}  />
-      <StatusBar style="auto" />
+      <FlatList
+        data={users}
+        renderItem={({ item }) => <Text style={styles.item}>{item.name}</Text>}
+        keyExtractor={item => String(item.id)}
+      ></FlatList>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  text: {
-      fontSize: 24,
-      color: 'white',
-  },
-  red: {
-    backgroundColor: 'red'
-  },
-  green: {
-    backgroundColor: 'green'
-  },
-  blue: {
-    backgroundColor: 'blue'
+  center: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
   },
   container: {
     flex: 1,
-    flexDirection: 'column',
-    backgroundColor: '#fff',
-    alignItems: 'baseline',
-    justifyContent: 'space-evenly',
+    backgroundColor: "#fff",
+    alignItems: "stretch",
+    justifyContent: "center",
+    paddingTop: 22,
+  },
+  item: {
+    padding: 10,
+    fontSize: 22,
+    height: 50,
+    borderBottomColor: "#ccc",
+    borderBottomWidth: 1,
   },
 });
