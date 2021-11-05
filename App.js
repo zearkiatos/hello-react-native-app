@@ -1,30 +1,44 @@
-import React from "react";
-import { StyleSheet, View, FlatList, Text, SectionList } from "react-native";
+import React, { useState, useEffect } from "react";
+import { StyleSheet, View, FlatList, Text } from "react-native";
 import data from "./src/mock/data.json";
+import config from './src/config';
 
 export default function App() {
+  const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(true);
+  console.log(config.JSON_PLACEHOLDER_API_BASE_URL);
+  useEffect(() => {
+    fetch(`${config.JSON_PLACEHOLDER_API_BASE_URL}/users`)
+      .then((response) => response.json())
+      .then((data) => {
+        setUsers(data);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) {
+    return (
+      <view>
+        <Text style={styles.center}>Loading...</Text>
+      </view>
+    );
+  }
   return (
     <View style={styles.container}>
       <FlatList
         data={data}
         renderItem={({ item }) => <Text style={styles.item}>{item.name}</Text>}
       ></FlatList>
-      <SectionList
-        sections={[
-          { title: "Group 1", data: data.slice(0, 4) },
-          { title: "Group 2", data: data.slice(5, 10) },
-          { title: "Group 3", data: data.slice(11, 15) },
-        ]}
-        renderItem={({ item }) => <Text style={styles.item}>{item.name}</Text>}
-        renderSectionHeader={({ section }) => (
-          <Text style={styles.section}>{section.title}</Text>
-        )}
-      />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  center: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
   container: {
     flex: 1,
     backgroundColor: "#fff",
@@ -39,13 +53,4 @@ const styles = StyleSheet.create({
     borderBottomColor: "#ccc",
     borderBottomWidth: 1,
   },
-  section: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    backgroundColor: '#ccc',
-    paddingTop: 2,
-    paddingLeft: 10,
-    paddingRight: 10,
-    paddingBottom: 2
-  }
 });
