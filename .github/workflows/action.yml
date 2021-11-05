@@ -24,5 +24,13 @@ jobs:
            npm install
            npm install -g yarn
            npm install -g expo-cli
+    - name: Create .env
+      run: |
+        touch .env &&
+        echo "ENVIRONMENT=${ENVIRONMENT}" > .env &&
+        echo "JSON_PLACEHOLDER_API_BASE_URL=${JSON_PLACEHOLDER_API_BASE_URL}" >> .env
+      env:
+        ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
+        JSON_PLACEHOLDER_API_BASE_URL: ${{ secrets.JSON_PLACEHOLDER_API_BASE_URL }}
     - name: Build docker 🐳
       run: docker build . -t=hello-react-native-app:ghb-$GITHUB_RUN_NUMBER

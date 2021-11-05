@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { StyleSheet, View, FlatList, Text } from "react-native";
 import data from "./src/mock/data.json";
-import config from './src/config';
+import config from "./src/config";
 
 export default function App() {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
-  console.log(config.JSON_PLACEHOLDER_API_BASE_URL);
   useEffect(() => {
     fetch(`${config.JSON_PLACEHOLDER_API_BASE_URL}/users`)
       .then((response) => response.json())
@@ -26,8 +25,9 @@ export default function App() {
   return (
     <View style={styles.container}>
       <FlatList
-        data={data}
+        data={users}
         renderItem={({ item }) => <Text style={styles.item}>{item.name}</Text>}
+        keyExtractor={item => String(item.id)}
       ></FlatList>
     </View>
   );
