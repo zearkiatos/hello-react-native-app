@@ -9,7 +9,6 @@ install-dependencies:
     - apk update && apk add python make g++
     - apk add --update nodejs npm
     - npm install
-    - npm install -g yarn
     - npm install -g expo-cli
   artifacts:
     expire_in: 1hr
