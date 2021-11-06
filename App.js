@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, View, FlatList, Text } from "react-native";
-import data from "./src/mock/data.json";
+import { StyleSheet, View, FlatList, Text, ActivityIndicator, Image } from "react-native";
 import config from "./src/config";
 
 export default function App() {
@@ -17,9 +16,10 @@ export default function App() {
 
   if (loading) {
     return (
-      <view>
+      <View>
         <Text style={styles.center}>Loading...</Text>
-      </view>
+        <ActivityIndicator size="large" color="#0000ff" />
+      </View>
     );
   }
   return (
@@ -29,11 +29,23 @@ export default function App() {
         renderItem={({ item }) => <Text style={styles.item}>{item.name}</Text>}
         keyExtractor={item => String(item.id)}
       ></FlatList>
+      <Image
+        style={styles.photo}
+        source={require('./assets/icon.png')}
+      />
+      <Image
+        style={styles.photo}
+        source={{url: 'https://placekitten.com/200/200'}}
+      />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  photo: {
+    height: 200,
+    width: 200
+  },
   center: {
     flex: 1,
     alignItems: "center",
