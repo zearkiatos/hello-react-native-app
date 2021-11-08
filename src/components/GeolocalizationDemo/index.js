@@ -13,7 +13,6 @@ const GeolocalizationDemo = () => {
     const searchLocation = async () => {
         const { status } = await Location.requestForegroundPermissionsAsync();
         if (status !== PERMISSIONS.GRANTED) {
-            setErrorMessage
             return Alert.alert('We do not have the necessary permissions to access to the location');
         };
         const location = await Location.getCurrentPositionAsync({});
