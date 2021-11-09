@@ -24,6 +24,8 @@ jobs:
            npm install
            npm install -g yarn
            npm install -g expo-cli
+           expo install expo-location
+           expo install react-native-maps    
     - name: Create .env
       run: |
         touch .env &&

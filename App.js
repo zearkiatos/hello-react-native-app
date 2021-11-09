@@ -1,15 +1,11 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
-import ModalDemo from "./src/components/ModalDemo";
-import AlertDemo from "./src/components/AlertDemo";
-import GeolocalizationDemo from "./src/components/GeolocalizationDemo";
+import CameraDemo from "./src/components/CameraDemo";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <ModalDemo />
-      <AlertDemo />
-      <GeolocalizationDemo />
+      <CameraDemo />
     </View>
   );
 }

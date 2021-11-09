@@ -10,6 +10,8 @@ install-dependencies:
     - apk add --update nodejs npm
     - npm install
     - npm install -g expo-cli
+    - expo install expo-location
+    - expo install react-native-maps   
     - touch .env
     - echo "ENVIRONMENT=${ENVIRONMENT}" > .env
     - echo "JSON_PLACEHOLDER_API_BASE_URL=${JSON_PLACEHOLDER_API_BASE_URL}" >> .env
