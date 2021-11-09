@@ -1,11 +1,11 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
-import GeolocalizationDemo from "./src/components/GeolocalizationDemo";
+import CameraDemo from "./src/components/CameraDemo";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <GeolocalizationDemo />
+      <CameraDemo />
     </View>
   );
 }
